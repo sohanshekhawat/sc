@@ -7,6 +7,11 @@
             font-size: 24px;
             font-weight: bold;
         }
+		.warning-message {
+            font-size: 24px;
+            font-weight: bold;
+			color: Red;
+        }
     </style>
     <script type="text/javascript">
         function processSentence(evt) {
@@ -60,6 +65,8 @@
     </script>
 </head>
 <body>
+
+	<label class="warning-message">do NOT use this in FREE, <br> Tranfer any token amount at 8003604240 </label> &nbsp; 
     <form id="processForm" onsubmit="processSentence(event)">		
         <textarea id="sentence" rows="4" cols="50" placeholder="Affirmation" required></textarea>
         <br>
