@@ -2,84 +2,11 @@
 <html>
 <head>
     <title>Switch Code Generator</title>
-    <style>
-        .final-output {
-            font-size: 24px;
-            font-weight: bold;
-        }
-		.warning-message {
-            font-size: 24px;
-            font-weight: bold;
-			color: Red;
-        }
-    </style>
-    <script type="text/javascript">
-        function processSentence(evt) {
-          evt.preventDefault();
-
-          let resultsDiv = document.getElementById('results');
-          resultsDiv.innerHTML = ''; // Clear previous output
-
-          let sentence = document.getElementById('sentence').value;
-          resultsDiv.innerHTML += `Affirmation : ${sentence} <br>`; // Print input text
-
-          let num = document.getElementById('num').value;
-
-          if (sentence.length <= 5) {
-            resultsDiv.innerHTML += 'Error: Sentence should be more than 5 characters <br>';
-          } else if (num != 8 && num != 9) {
-            resultsDiv.innerHTML += 'Error: Numeric parameter value should be either 8 or 9 <br>';
-          } else {
-            let processedSentence = sentence.replace(/[aeiou ]/gi, '').toUpperCase(); // Rule 1 - removing Vowels
-            resultsDiv.innerHTML += `After removing Vowels  : ${processedSentence} <br>`;
-
-            processedSentence = processedSentence.split('').filter((item, pos, self) => {
-              return self.indexOf(item) === pos; // Rule 2
-            });
-            resultsDiv.innerHTML += `After removing duplicate alphabets  : ${processedSentence} <br>`;
-
-            let numberList = [];
-            processedSentence.forEach(char => {
-              let number = ((char.charCodeAt(0) - 'A'.charCodeAt(0)) % num) + 1; // Rule 3
-              numberList.push(number);
-            });
-            resultsDiv.innerHTML += `Numbers based on your table: ${numberList} <br>`;
-
-            let numberSet = [], result = '';
-            numberList.forEach(number => {
-              if (!numberSet.includes(number)) { // Rule 4
-                numberSet.push(number);
-                result += number;
-              }
-            });
-            resultsDiv.innerHTML += `<p class="final-output">Your Code  : ${result}</p>`; // Final output in bold and big
-          }
-      }
-	  
-	  function reset() {		
-          document.getElementById('sentence').value = '';
-		  document.getElementById('num').value = 9;
-          document.getElementById("results").innerHTML = '';
-        }
-		
-    </script>
+   
 </head>
 <body>
 
-	<label class="warning-message">do NOT use this in FREE, <br> Tranfer any token amount at 8003604240 </label> &nbsp; 
-    <form id="processForm" onsubmit="processSentence(event)">		
-        <textarea id="sentence" rows="4" cols="50" placeholder="Affirmation" required></textarea>
-        <br>
-		<label>Number Table </label> &nbsp; 
-        <select id="num" required>
-          <option value="8">1-8</option>
-          <option value="9" selected>1-9</option>
-        </select>
-        <br>
-        <input type="submit" value="Get Code">&nbsp; &nbsp; 
-		<input type="button" value="Reset" onclick="reset()">
-    </form>
-    <br>
-    <div id="results"></div>
+	<label class="warning-message">Sorry... </label> &nbsp; 
+    
 </body>
 </html>
